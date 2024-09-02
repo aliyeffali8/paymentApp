@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>User Information</h1>
+    <p>Name: {{ apartment.owner.name }}</p>
+    <p>Surname: {{ apartment.owner.surname }}</p>
+    <p>Apartment: {{apartment.address }} {{ apartments.unit_number }}</p>
+    <p>Isiq ID: {{apartment.utility_electric_utility.utility_id }}</p>
+    <p>balance : {{ apartment.utility_electric_utility.balance }}</p>
+    <form method="post" action="{% url 'million:pay_electric' %}">
+    {% csrf_token %}
+        <label for="ampunt" class="form-label">ödəmək istədiyiniz mənləği seçin</label>
+        <input type="text" class="form-control" id="amount" name="amount" style="width: 300px">
+
+    <button type="submit" class="btn btn-primary" name="utility_id" value="{{ apartment.utility_electric_utility.utility_id }}">davam et</button>
+
+    </form>
+
+<!--
+    bu səhifəni hamısı üçün common eləməyə çalışarsan. sonra ödəməni də həmçinin 1 səhifəyə sığdırıb şey eliyə bilərsən.
+-->
+
+
+{% endblock %}

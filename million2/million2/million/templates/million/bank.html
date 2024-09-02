@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block content %}
+<html>
+    <head>
+        <style>
+
+            .komunal {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                width: 100%;
+                margin: 120px auto;
+                background-color: rgb(207 207 207 / 14%);
+            }
+
+            .komunal h2 {
+                font-size: 25px;
+                padding: 40px 0;
+                text-align: center;
+            }
+
+            .komunal_divs {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                max-width: 1300px;
+                gap: 20px;
+                margin: 20px auto;
+            }
+
+            .komunal_div {
+                width: 350px;
+                height: 250px;
+                border: 1px solid rgb(159, 159, 159);
+                border-radius: 10px;
+                box-shadow: 1px 3px 7px 2px #aba8a8;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .komunal_div a {
+                width: 60px;
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .komunal_div:hover {
+                box-shadow: 1px 3px 7px 2px #db0101;
+            }
+
+            .komunal_div:hover p {
+                color: #db0101;
+            }
+
+            .komunal_div:hover img {
+                transition: .3s ease-in-out;
+            }
+
+            .komunal_div img {
+                max-width: 200px;
+                height: 120px;
+                object-fit: cover;
+                margin: 30px 0 10px;
+            }
+
+            .komunal_div p {
+                color: #db0101;
+                font-size: 14px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+        </style>
+
+    </head>
+    <body>
+
+    <div class="komunal">
+        <h2>Ödənişlər</h2>
+        <div class="komunal_divs">
+            <a href="" class="komunal_div">
+                <img  src="https://www.pashabank.az/templates/images/pblogo.png" class="card-img-top" alt="...">
+
+                <p>Pasha Bank</p>
+            </a>
+            <a href="" class="komunal_div">
+                <img  src="data:image/png;base64,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" class="card-img-top" alt="...">
+
+                <p>Kapital Bank</p>
+            </a>
+            <a href="" class="komunal_div">
+                <img style="margin-top: 20px;" src="https://banco.az/sites/default/files/banklogo/unibank.jpg" class="card-img-top" alt="...">
+
+                <p>Uni Bank</p>
+            </a>
+        </div>
+    </div>
+    </body>
+</html>
+{% endblock %}
